@@ -36,6 +36,21 @@ class Home extends StatelessWidget {
 
         // Describes the account button and settings button at the top right of the appbar.
         actions: <Widget>[
+          // Button to go to the list of locations screen.
+          IconButton(
+            icon: const Icon(Icons.list),
+            tooltip: 'Locations',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const Locations(),
+                ),
+              ); // Navigator push
+            },
+          ),
+
+          // Button to go to the settings screen.
           IconButton(
             icon: const Icon(Icons.settings),
             tooltip: 'Settings',
@@ -47,7 +62,7 @@ class Home extends StatelessWidget {
                 ),
               ); // Navigator push
             }, // onPressed
-          )
+          ),
         ],
 
         // The color of the appbar Background.
