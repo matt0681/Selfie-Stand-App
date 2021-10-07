@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';  // Imports Dart.
 
 /// This function runs the entire app.
+///
 void main() {
   runApp(const MaterialApp(
     // Uses our home screen defined below
