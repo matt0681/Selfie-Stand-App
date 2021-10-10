@@ -1,5 +1,6 @@
 import 'dart:ffi';
-import 'package:flutter/material.dart';  // Imports Dart.
+import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';  // Imports Dart.
 
 
 /// This function runs the entire app.
@@ -41,10 +42,10 @@ class HomeState extends State<Home> {
 
   // List of navigation bar widgets
   static const List<Widget> widgetOptions = <Widget>[
-    Selfies_Widget(),
-    Map_Widget(),
-    Friends_Widget(),
-    Account_Widget(),
+    SelfiesWidget(),
+    MapWidget(),
+    FriendsWidget(),
+    AccountWidget(),
   ];
 
   void onItemTapped(int index) {
@@ -102,14 +103,46 @@ class HomeState extends State<Home> {
 
 
 /// Represents all content shown on the Account screen.
-class Selfies_Widget extends StatelessWidget {
-  const Selfies_Widget({Key? key}) : super(key: key);
+class SelfiesWidget extends StatelessWidget {
+  const SelfiesWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("Selfies"),
+    return Scaffold(
+      // Background color for the app.
+      backgroundColor: Colors.cyan[100],
+
+      // The grid structure holding the cards.
+      body: GridView.count(
+        crossAxisCount: 2, // How many items across
+        padding: const EdgeInsets.all(16.0), // space around the 4 sides of the cards
+        childAspectRatio: 8.0 / 9.0, // size of cards based on aspect ratio
+        // List of selfie cards.
+        children: <Widget>[
+          Card(
+            clipBehavior: Clip.antiAlias,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const AspectRatio(
+                  aspectRatio: 18.0 / 11.0,
+                  child: Image(image: AssetImage('assets/images/ramen_bowl.png')),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16.0, 12.0, 16.0, 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const <Widget>[
+                      Text("Place Name"),
+                      SizedBox(height: 8.0),
+                      Text("See Location"),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
@@ -118,8 +151,8 @@ class Selfies_Widget extends StatelessWidget {
 
 
 /// Represents all content shown on the Account screen.
-class Map_Widget extends StatelessWidget {
-  const Map_Widget({Key? key}) : super(key: key);
+class MapWidget extends StatelessWidget {
+  const MapWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -134,8 +167,8 @@ class Map_Widget extends StatelessWidget {
 
 
 /// Represents all content shown on the Account screen.
-class Friends_Widget extends StatelessWidget {
-  const Friends_Widget({Key? key}) : super(key: key);
+class FriendsWidget extends StatelessWidget {
+  const FriendsWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -150,8 +183,8 @@ class Friends_Widget extends StatelessWidget {
 
 
 /// Represents all content shown on the Account screen.
-class Account_Widget extends StatelessWidget {
-  const Account_Widget({Key? key}) : super(key: key);
+class AccountWidget extends StatelessWidget {
+  const AccountWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
