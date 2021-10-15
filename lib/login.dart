@@ -10,9 +10,6 @@ class LoginScreen extends StatefulWidget {
   State<StatefulWidget> createState() {
     return _LoginScreenState();
   }
-  
-  // @override
-  // _LoginScreenState createState() => _LoginScreenState();
 }
 
 /// This class builds the layout of the login screen.
