@@ -1,3 +1,4 @@
+import 'package:app_development/explore.dart';
 import 'package:flutter/material.dart';
 
 class MapScreen extends StatelessWidget {
@@ -5,10 +6,19 @@ class MapScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("Map"),
+    return Scaffold(
+      /// Floating Action Button
+      floatingActionButton: FloatingActionButton.extended(
+        label: Text("Explore"),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const ExploreScreen()),
+          );
+        },
+        icon: Icon(Icons.explore),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
     );
   }
 }
