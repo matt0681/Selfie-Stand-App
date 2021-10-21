@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "968811309734",
+    "project_id": "selfie-stand-project",
+    "storage_bucket": "selfie-stand-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968811309734:android:20ea0978b526967505e267",
+        "android_client_info": {
+          "package_name": "com.example.app_development"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "968811309734-1cul0vpo85n6qirvrgll89vlnb4r8vo5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjudtLMf5aJhYD_U4bQwALzjglZfVTyN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "968811309734-1cul0vpo85n6qirvrgll89vlnb4r8vo5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
