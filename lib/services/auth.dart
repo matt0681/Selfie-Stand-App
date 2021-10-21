@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 
-/// Support for the different login features.
+/// Support for the different login types.
 class AuthService {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -9,8 +9,8 @@ class AuthService {
   /// Sign in anonymously
   Future signInAnon() async {
     try {
-      AuthResult result = _auth.signInAnonymously() as AuthResult;
-      FirebaseUser user = result.user;
+      UserCredential result = _auth.signInAnonymously() as UserCredential;
+      User user = result.user;
       return user;
     } catch(e) {
       print(e.toString());
