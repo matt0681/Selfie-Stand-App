@@ -1,11 +1,14 @@
 
-"file (function)""
 
-
-- Figure out navigation and routing.
-
-- Navigation Drawer for Account/ Settings.
-- Bottom Sheet for the location information.
-- Container Transform motion for selfies list.
+                    Main
+                      |
+                      |
+                   Wrapper
+                      |
+                      |
+   +------------------+--------------+
+   |                                 |
+   |                                 |
+Authenticate                       Home
 
 

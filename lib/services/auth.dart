@@ -1,3 +1,4 @@
+import 'package:app_development/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 
@@ -6,11 +7,16 @@ class AuthService {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  // Create user object based on FireBaseUser
+  CustomClassName? userFromFirebaseUser(User user) {
+    return user != null ? CustomClassName(uid: user.uid) : null;
+  }
+
   /// Sign in anonymously
   Future signInAnon() async {
     try {
-      UserCredential result = _auth.signInAnonymously() as UserCredential;
-      User user = result.user;
+      UserCredential result = await _auth.signInAnonymously();
+      User? user = result.user;
       return user;
     } catch(e) {
       print(e.toString());
