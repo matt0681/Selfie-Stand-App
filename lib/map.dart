@@ -1,5 +1,6 @@
-import 'package:app_development/Old%20Stuff/explore.dart';
 import 'package:flutter/material.dart';
+import 'explore.dart';
+
 
 class MapScreen extends StatelessWidget {
   const MapScreen({Key? key}) : super(key: key);
