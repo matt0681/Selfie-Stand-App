@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
-// This enum provides the different states for login.
+
+/// This enum describes where the user is in the sign-in flow.
 enum ApplicationLoginState {
-  loggedOut,
-  emailAddress,
-  register,
-  password,
-  loggedIn,
+  loggedOut,     // logged out state
+  emailAddress,  // asking for user email
+  register,      // asking user to register
+  password,   // asking for user password
+  loggedIn,   // logged in state
 }
 
-// This class controls the login screen. It authenticates the user and handles
-// logging in, logging out, and registering.(And the multiple subprocesses like
-// verifying email, canceling registering, etc.)
+/// This class controls the UI of the login screen. It displays different widgets
+/// based on where the user is in the sign-in flow. It doesn't show extremely
+/// specific elements. Much of the specifics of each widget are defined below in
+/// classes of their own.
 class Authentication extends StatelessWidget {
 
   // The different states of authentication.
@@ -162,6 +164,12 @@ class Authentication extends StatelessWidget {
   }
 }
 
+///----------------------///
+/// UI WIDGETS           ///
+/// ---------------------///
+
+/// This widget is for signing in with email. It asks for email and then allows
+/// the user to continue to the next screen.
 class EmailForm extends StatefulWidget {
   EmailForm({required this.callback});
   final void Function(String email) callback;
@@ -225,7 +233,8 @@ class _EmailFormState extends State<EmailForm> {
   }
 }
 
-
+/// This widget is for registering a new account. It takes in an email, name,
+/// password, as well as allows the user to cancel the registering process.
 class RegisterForm extends StatefulWidget {
   RegisterForm({
     required this.registerAccount,
@@ -344,6 +353,8 @@ class _RegisterFormState extends State<RegisterForm> {
   }
 }
 
+/// This widget is for password and email sign in. The user may type in their
+/// email and password and sign in.
 class PasswordForm extends StatefulWidget {
   const PasswordForm({
     required this.login,

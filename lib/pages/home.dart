@@ -1,5 +1,8 @@
+import 'package:app_development/authentication/authentication.dart';
+import 'package:app_development/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'account.dart';
 import 'friends.dart';
 import 'map.dart';
@@ -40,10 +43,23 @@ class HomeScreen extends StatelessWidget {
       body: PageView(
         scrollDirection: Axis.horizontal,
         controller: controller,
-        children: const [
+        children: <Widget>[
           SelfiesScreen(),
           MapScreen(),
           FriendsScreen(),
+
+          Consumer<ApplicationState>(
+            builder: (context, appState, _) => Authentication(
+              email: appState.email,
+              loginState: appState.loginState,
+              startLoginFlow: appState.startLoginFlow,
+              verifyEmail: appState.verifyEmail,
+              signInWithEmailAndPassword: appState.signInWithEmailAndPassword,
+              cancelRegistration: appState.cancelRegistration,
+              registerAccount: appState.registerAccount,
+              signOut: appState.signOut,
+            ),
+          ),
         ],
       ),
     );
