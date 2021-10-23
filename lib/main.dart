@@ -3,14 +3,8 @@ import 'pages/home.dart';
 import 'authentication/login.dart';
 
 
-/// Left off at 18:00 - Enabling user sign in with Firebase auth.
-/// https://firebase.flutter.dev/docs/overview
-
-
-
-
-
-
+// Left off at 18:00 - Enabling user sign in with Firebase auth.
+// https://firebase.flutter.dev/docs/overview
 
 
 /// This function starts the entire app.
