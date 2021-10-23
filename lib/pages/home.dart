@@ -8,6 +8,7 @@ import 'friends.dart';
 import 'map.dart';
 import 'selfies.dart';
 
+
 /// The home screen manages all the different pages.
 /// It controls the ability to swipe left and right to move between pages and
 /// also contains the account button.
