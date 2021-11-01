@@ -49,21 +49,20 @@ class HomeScreen extends StatelessWidget {
           MapScreen(),
           FriendsScreen(),
 
-          Consumer<ApplicationState>(
-            builder: (context, appState, _) => Authentication(
-              email: appState.email,
-              loginState: appState.loginState,
-              startLoginFlow: appState.startLoginFlow,
-              verifyEmail: appState.verifyEmail,
-              signInWithEmailAndPassword: appState.signInWithEmailAndPassword,
-              cancelRegistration: appState.cancelRegistration,
-              registerAccount: appState.registerAccount,
-              signOut: appState.signOut,
-            ),
-          ),
+          // Consumer<ApplicationState>(
+          //   builder: (context, appState, _) => Authentication(
+          //     email: appState.email,
+          //     loginState: appState.loginState,
+          //     startLoginFlow: appState.startLoginFlow,
+          //     verifyEmail: appState.verifyEmail,
+          //     signInWithEmailAndPassword: appState.signInWithEmailAndPassword,
+          //     cancelRegistration: appState.cancelRegistration,
+          //     registerAccount: appState.registerAccount,
+          //     signOut: appState.signOut,
+          //   ),
+          // ),
         ],
       ),
     );
   }
 }
-
