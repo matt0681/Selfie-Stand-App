@@ -1,3 +1,4 @@
+import 'package:app_development/pages/home.dart';
 import 'package:flutter/material.dart';
 
 
@@ -57,18 +58,28 @@ class Authentication extends StatelessWidget {
     switch(loginState) {
 
       case ApplicationLoginState.loggedOut:
-        return Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 24, bottom: 8),
-              child: ElevatedButton(
-                onPressed: () {
-                  startLoginFlow();
-                },
-                child: const Text('Login'),
-              ),
-            )
-          ],
+        return Container(
+          decoration: const BoxDecoration(color: Colors.white),
+          child: Center(
+            child: Column(
+              children: [
+                const Text(
+                  'Selfie Stand!',
+                  textDirection: TextDirection.ltr,
+                  style: TextStyle(
+                    fontSize: 32,
+                    color: Colors.black87,
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    startLoginFlow();
+                  },
+                  child: const Text('Login'),
+                ),
+              ], // children
+            ),
+          ),
         );
 
       case ApplicationLoginState.emailAddress:
@@ -104,19 +115,20 @@ class Authentication extends StatelessWidget {
         );
 
       case ApplicationLoginState.loggedIn:
-        return Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 24, bottom: 8),
-              child: ElevatedButton(
-                onPressed: () {
-                  signOut();
-                },
-                child: const Text('Sign Out'),
-              ),
-            ),
-          ],
-        );
+        return const HomeScreen();
+        // Row(
+        //   children: [
+        //     Padding(
+        //       padding: const EdgeInsets.only(left: 24, bottom: 8),
+        //       child: ElevatedButton(
+        //         onPressed: () {
+        //           signOut();
+        //         },
+        //         child: const Text('Sign Out'),
+        //       ),
+        //     ),
+        //   ],
+        // );
 
       default:
         return Row(
