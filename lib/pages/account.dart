@@ -9,7 +9,7 @@ class AccountScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
 
-        title: const Text("Settings!"),
+        title: const Text(" Settings + Account"),
 
         leading: ElevatedButton(
           onPressed: () {

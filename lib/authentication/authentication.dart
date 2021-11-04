@@ -116,19 +116,6 @@ class Authentication extends StatelessWidget {
 
       case ApplicationLoginState.loggedIn:
         return const HomeScreen();
-        // Row(
-        //   children: [
-        //     Padding(
-        //       padding: const EdgeInsets.only(left: 24, bottom: 8),
-        //       child: ElevatedButton(
-        //         onPressed: () {
-        //           signOut();
-        //         },
-        //         child: const Text('Sign Out'),
-        //       ),
-        //     ),
-        //   ],
-        // );
 
       default:
         return Row(
