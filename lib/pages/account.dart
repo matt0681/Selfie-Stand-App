@@ -8,8 +8,12 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-
         title: const Text(" Settings + Account"),
+        titleSpacing: 06.0,
+        centerTitle: true,
+        toolbarHeight: 60,
+        elevation: 0.00,
+        backgroundColor: Colors.blue,
 
         leading: ElevatedButton(
           onPressed: () {
@@ -17,11 +21,15 @@ class AccountScreen extends StatelessWidget {
           },
           child: const Icon(Icons.arrow_back),
         ),
+      ),
 
-        // flexibleSpace: Container(
-        //
-        // ),
-
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            ///...///
+          },
+          child: const Text("Sign out"),
+        ),
       ),
     );
   }
