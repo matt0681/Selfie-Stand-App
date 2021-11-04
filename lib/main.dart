@@ -123,7 +123,7 @@ class ApplicationState extends ChangeNotifier {
     }
   }
 
-  void signOut() {
+  static void signOut() {
     FirebaseAuth.instance.signOut();
   }
 }

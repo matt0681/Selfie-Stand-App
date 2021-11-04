@@ -23,7 +23,7 @@ class LoginScreen extends StatelessWidget {
           signInWithEmailAndPassword: appState.signInWithEmailAndPassword,
           cancelRegistration: appState.cancelRegistration,
           registerAccount: appState.registerAccount,
-          signOut: appState.signOut,
+          signOut: ApplicationState.signOut,
         ),
       ),
     );

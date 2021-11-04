@@ -1,4 +1,7 @@
+import 'package:app_development/authentication/authentication.dart';
 import 'package:flutter/material.dart';
+
+import '../main.dart';
 
 
 class AccountScreen extends StatelessWidget {
@@ -26,7 +29,7 @@ class AccountScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            ///...///
+            ApplicationState.signOut();
           },
           child: const Text("Sign out"),
         ),
