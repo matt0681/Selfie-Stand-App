@@ -1,12 +1,10 @@
-import 'package:app_development/pages/home.dart';
-import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'authentication/authentication.dart';
 import 'authentication/login.dart';
+import 'dart:async';
 
 //
 // Left off at 26:11 - Enabling user sign in with Firebase auth.
@@ -20,7 +18,7 @@ import 'authentication/login.dart';
 
 /// The main method which starts the entire app!
 /// It creates an application state and starts up the UI.
-void main() {
+void main() async {
   runApp(
     ChangeNotifierProvider(
       create: (context) => ApplicationState(),

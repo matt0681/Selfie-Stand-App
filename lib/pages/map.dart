@@ -20,16 +20,6 @@ class MapScreen extends StatelessWidget {
         icon: Icon(Icons.explore),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
-
-      body: Column(
-        children: [
-          ElevatedButton(
-              onPressed: () {
-
-              },
-              child: const Text('Take Picture')),
-        ],
-      ),
     );
   }
 }
