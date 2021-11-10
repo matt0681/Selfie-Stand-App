@@ -5,20 +5,22 @@ import 'package:provider/provider.dart';
 import 'authentication/authentication.dart';
 import 'authentication/login.dart';
 import 'dart:async';
+import 'package:camera/camera.dart';
 
-//
 // Left off at 26:11 - Enabling user sign in with Firebase auth.
 // https://firebase.flutter.dev/docs/overview
 // https://firebase.google.com/codelabs/firebase-get-to-know-flutter#0
-//
-// Change the code so that it will take you to the login screen first, and then to homescreen.
-//
-//
 
+var cameras = List<CameraDescription>.empty();
 
 /// The main method which starts the entire app!
 /// It creates an application state and starts up the UI.
-void main() async {
+Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
+  cameras = await availableCameras();
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => ApplicationState(),

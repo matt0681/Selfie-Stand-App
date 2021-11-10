@@ -1,3 +1,4 @@
+import 'package:app_development/pages/camera.dart';
 import 'package:flutter/material.dart';
 import 'explore.dart';
 
@@ -20,6 +21,20 @@ class MapScreen extends StatelessWidget {
         icon: Icon(Icons.explore),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CameraScreen()),
+              );
+           },
+            child: const Text("Camera"),
+          ),
+        ],
+      ),
     );
   }
 }
