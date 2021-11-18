@@ -1,8 +1,5 @@
-import 'package:app_development/authentication/authentication.dart';
-import 'package:app_development/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'account.dart';
 import 'friends.dart';
 import 'map.dart';

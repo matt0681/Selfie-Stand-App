@@ -1,4 +1,3 @@
-import 'package:app_development/authentication/authentication.dart';
 import 'package:flutter/material.dart';
 
 import '../main.dart';
