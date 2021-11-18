@@ -1,8 +1,8 @@
+import 'dart:async';
+import 'dart:io';
 import 'package:app_development/main.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-
-import 'map.dart';
 
 
 class CameraScreen extends StatefulWidget {
@@ -19,42 +19,52 @@ class _CameraScreenState extends State<CameraScreen> {
   @override
   void initState() {
     super.initState();
-    controller = CameraController(cameras[0], ResolutionPreset.max);
+
+    controller = CameraController(
+        cameras[0],
+        ResolutionPreset.medium);
+
     controller.initialize().then((_) {
       if(!mounted) {
         return;
       }
+
       setState(() {});
     });
   }
 
   @override
   void dispose() {
-    (controller != null) ? controller.dispose() : null;
+    // (controller != null) ? controller.dispose() : null;
+    controller.dispose();
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
+
+    final size = MediaQuery.of(context).size;
+    final deviceRatio = size.width / size.height;
 
     if(!controller.value.isInitialized) {
       return Container();
     }
 
-    return Scaffold(
+    return Stack(
+      children: <Widget>[
 
-      body: Align(
-        alignment: Alignment.center,
-        child: CameraPreview(controller),
-      ),
 
-      /// Floating Action Button
-      floatingActionButton: Stack (
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(left:30, top: 50),
-            child: Align(
-              alignment: Alignment.topLeft,
+        AspectRatio(
+          aspectRatio: deviceRatio,
+          child: CameraPreview(controller),
+        ),
+
+        Stack(
+          children: <Widget>[
+            Positioned(
+              top: 20,
+              left: 8,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -67,17 +77,26 @@ class _CameraScreenState extends State<CameraScreen> {
                 child: const Icon(Icons.arrow_back),
               ),
             ),
-          ),
 
-          Padding(
-            padding: const EdgeInsets.only(bottom:30, left: 35),
-            child: Align(
-              alignment: Alignment.bottomCenter,
+            Positioned(
+              bottom: 20,
+              left: size.width/2 - (34),
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
+                  try {
+                    final image = await controller.takePicture();
 
-                  // TAKE PICTURE CODE HERE
+                    await Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => DisplayPictureScreen(
+                          imagePath: image.path,
+                        ),
+                      ),
+                    );
 
+                  } catch (err) {
+                    print(err);
+                  }
                 },
                 style: ButtonStyle(
                   padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(17)),
@@ -87,9 +106,27 @@ class _CameraScreenState extends State<CameraScreen> {
                 child: const Icon(Icons.photo_camera),
               ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+// A widget that displays the picture taken by the user.
+class DisplayPictureScreen extends StatelessWidget {
+  final String imagePath;
+
+  const DisplayPictureScreen({Key? key, required this.imagePath})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Display the Picture')),
+      // The image is stored as a file on the device. Use the `Image.file`
+      // constructor with the given path to display the image.
+      body: Image.file(File(imagePath)),
     );
   }
 }
